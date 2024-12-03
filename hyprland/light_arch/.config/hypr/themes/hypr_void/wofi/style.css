@@ -1,0 +1,80 @@
+/* параметры вообще для всего */
+*{
+    font-family: JetBrainsMono;
+    font-size: 13px;
+}
+
+/* COLOR */
+@define-color bg #1e2327;
+@define-color fg #d3c6aa;
+@define-color green #a7c080;
+
+/* параметры для окна */
+window {
+    background-color: @bg;
+    border: 1px solid @fg;
+    border-radius: 6px;
+    color: @bg;
+}
+
+/* параметры для окна ввода */
+#input {
+    margin: 10 0 10 0x;
+    padding: 5;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 0px solid @fg;
+    background-color: @fg;
+    color: @bg;
+}
+
+/* параметры для окна с приложениями */
+#inner-box {
+    background-color: @bg;
+    padding: 15 0 0 0;
+}
+
+#prompt{
+    color: @bg;
+}
+
+/* параметры пространства вокруг окна wofi */
+#outer-box {
+    margin: 20px;
+    padding:0px;
+    background-color: @bg;
+}
+
+/* параметры для полосы прокрутки */
+#scroll {
+    background-color: @bg;
+}
+
+/* параметры для текста */
+#text {
+padding: 5px;
+color: @fg;
+}
+
+/* параметры для 2й колонки если таковая имеется */
+#entry:nth-child(even){
+    background-color: @bg;
+}
+
+/* параметры для выделенного пункта */
+#entry:selected {
+    border-radius: 5px;
+    background-color: @fg;
+    font-color: @bg;
+}
+
+/* параметры выделенного текста */
+#text:selected {
+color: @bg;
+}
+
+/* параметры для иконок */
+#img
+
+/* параметры для не выделенного */
+#unselected
