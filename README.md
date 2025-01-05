@@ -2,5 +2,5 @@
 
 ## УСТАНОВКА HYPRLAND
 ```
-sudo pacman -S hyprland git waybar pavucontrol
+sudo pacman -S hyprland git waybar pavucontrol brightnessctl
 ```
