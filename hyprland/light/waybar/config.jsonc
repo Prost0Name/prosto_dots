@@ -1,0 +1,146 @@
+// -*- mode: jsonc -*-
+{
+	"height": 10,
+	// "width": 1900,
+	// "margin-top": 7,
+
+	"modules-left": ["custom/menu", "hyprland/workspaces", "hyprland/window"],
+	// "modules-center": ["network"],
+	"modules-right": ["tray", "hyprland/language", "pulseaudio", "backlight", "battery", "network", "clock", "custom/power"],
+
+	"battery": {
+        	"states": {
+            		"warning": 30,
+            		"critical": 15
+        	},
+        	"format": "{icon} {capacity}%",
+        	"format-charging": "󰂄 {capacity}%",
+        	"format-plugged": "{capacity}%",
+        	"format-alt": "{time} {icon}",
+        	"format-full": "󱟢 {capacity}%",
+        	"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"]
+	},
+
+	"custom/menu": {
+		"format": "<span color=\"#f5f7fa\">{icon}</span>",
+		"format-icons": "󰣇",
+		"on-click": "pkill wofi || wofi --show drun",
+		"escape": true,
+		"tooltip": false
+	},
+
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": ["", ""],
+		"on-scroll-up": "brightnessctl set +5%",
+		"on-scroll-down": "brightnessctl set 5%-"
+	},
+
+	"hyprland/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"warp-on-scroll": false,
+		"format": "{name}",
+		"format": "{icon}",
+		"format-icons": {
+			"1": "󰮯",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "󰊠",
+			"6": "󰊠",
+			"7": "󰊠",
+			"urgent": "",
+			"active": "",
+			"default": ""
+		},
+	},
+
+	"hyprland/window": {
+		"format": "{class}",
+		"separate-outputs": false,
+	},
+
+	"network": {
+        "format-ethernet": "",
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+
+	"custom/cmus": {
+		"format": "{icon} {}",
+		"format-icons": {
+		"default": ["<span color='#89b4fa'></span>"]
+		},
+		"max-length": 45,
+		"interval": 1,
+		"exec": "cmus-remote -C \"format_print '%F'\"",
+		"exec-if": "pgrep cmus",
+		"on-click": "cmus-remote -u",
+		"on-scroll-up": "cmus-remote --next",
+		"on-scroll-down": "cmus-remote --prev",
+		"escape": true,
+		"tooltip": false
+	},
+
+	"custom/weather": {
+		"format": "{}",
+		"interval": 10,
+		"exec": "~/.config/waybar/weather.sh",
+		"tooltip": false
+	},
+
+	"custom/foot": {
+		"format": "<span color='#a6e3a1'></span>",
+		"on-click": "exec alacritty --title=home",
+		"tooltip": false
+	},
+
+	"custom/nemo": {
+		"format": "<span color='#89b4fa'>󰉋</span>",
+		"on-click": "exec nemo ~",
+		"tooltip": false
+	},
+
+	"tray": {
+		"icon-size": 18,
+		"spacing": 10
+	},
+
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "EN",
+		"format-ru": "RU",
+	},
+
+	"pulseaudio": {
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": " {volume}%",
+		"format-icons": {
+			"default": ["", "", ""]
+		},
+		"on-click": "pkill pavucontrol || pavucontrol",
+		"tooltip": false
+	},
+
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+
+	"custom/power": {
+		"format": "<span color=\"#f5f7fa\">{icon}</span>",
+		"format-icons": {"default": [""]},
+		"on-click": "~/.config/hypr/themes/hypr_void/scripts/power.sh",
+	},
+
+	"escape": true,
+	"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+	}
+}
